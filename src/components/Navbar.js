@@ -3,48 +3,66 @@ import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   const [contactOpen, setContactOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // ✅ Navbar toggle state
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand">{props.title}</a>
+        {/* Brand */}
+        <Link className="navbar-brand" to="/">
+          {props.title}
+        </Link>
 
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav d-flex align-items-center" style={{ gap: "20px" }}>
+        {/* ✅ Toggler button for mobile */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          aria-controls="navbarNav"
+          aria-expanded={isOpen ? "true" : "false"}
+          aria-label="Toggle navigation"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        {/* Collapsible menu */}
+        <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`} id="navbarNav">
+          <ul className="navbar-nav ms-auto d-flex align-items-center" style={{ gap: "20px" }}>
             <li className="nav-item">
-              <Link className="nav-link" to="/">Home</Link>
+              <Link className="nav-link" to="/" onClick={() => setIsOpen(false)}>
+                Home
+              </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/Listing">Listing</Link>
+              <Link className="nav-link" to="/Listing" onClick={() => setIsOpen(false)}>
+                Listing
+              </Link>
             </li>
 
-            
-            <li className="nav-item" style={{ position: "relative" }}>
+            {/* Contact Dropdown */}
+            <li className="nav-item dropdown">
               <button
-                className="btn nav-link"
-                onClick={() => setContactOpen(!contactOpen)}
+                className="btn nav-link dropdown-toggle"
                 style={{ background: "none", border: "none" }}
+                onClick={() => setContactOpen(!contactOpen)}
               >
-                Contact ▼
+                Contact
               </button>
 
               {contactOpen && (
-                <div style={{
-                  position: "absolute",
-                  top: "100%",
-                  left: 0,
-                  backgroundColor: "#fff",
-                  border: "1px solid #ccc",
-                  borderRadius: "4px",
-                  zIndex: 1000,
-                  minWidth: "120px"
-                }}>
+                <div
+                  className="dropdown-menu show"
+                  style={{ position: "absolute", zIndex: 1000 }}
+                >
                   <Link
                     className="dropdown-item"
                     to="/Contact"
                     state={{ show: "login" }}
-                    onClick={() => setContactOpen(false)}
+                    onClick={() => {
+                      setContactOpen(false);
+                      setIsOpen(false);
+                    }}
                   >
                     Login
                   </Link>
@@ -52,7 +70,10 @@ export default function Navbar(props) {
                     className="dropdown-item"
                     to="/Contact"
                     state={{ show: "signup" }}
-                    onClick={() => setContactOpen(false)}
+                    onClick={() => {
+                      setContactOpen(false);
+                      setIsOpen(false);
+                    }}
                   >
                     Sign Up
                   </Link>
