@@ -1,0 +1,91 @@
+body{
+   background-color: #204a5a; 
+   color:white;
+}
+.header{
+    background-image:url(girl.jpeg);
+    width:100%;
+    height:100vh;
+    background-repeat: no-repeat;
+    background-attachment:scroll;
+    background-position:130vh;
+    background-size: 50vh;
+   
+}
+.nav{
+    display: flex;               /* Activate flexbox */
+  justify-content: space-between; /* Space between logo and links */
+  align-items: center;         /* Vertically center items */
+  padding: 5px;
+  background-color: #6b8ea1;
+  color: white;
+}
+ul{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+gap:150px;
+list-style: none;
+padding-right: 20px;
+}
+.logo{
+font-size: x-large;
+font-weight: 900;
+padding-left: 40px;
+font-style:oblique;
+
+}
+
+
+ul a{
+    text-decoration: none;
+    color: white;
+
+}
+ul a:hover{
+border-bottom: solid;
+border-width: 3px;
+border-color: #d333b3;
+font-weight:bolder;
+}
+.heading{
+    margin-top: 200px;
+    margin-left: 140px;
+
+}
+strong{
+    display: inline-block;
+    font-family: monospace;        
+    white-space: nowrap;           
+    overflow: hidden;               
+    border-right: 2px solid black;  
+    width: 0ch;
+    animation:text 1s steps(13) forwards;
+    color:#d333b3;
+}
+@keyframes text {
+    from {
+        width: 0ch;
+    }
+    to {
+        width: 13ch; 
+    }
+}
+
+.about{
+    display: flex;
+    justify-content:space-between;
+    background-color:#6b8ea1;
+
+    
+}
+.abouttext{
+    margin-left: 500px;
+    font-size: large;
+}
+ul li:hover{
+border-bottom: solid;
+border-width: 3px;
+border-color: #d333b3;
+font-weight:bolder;
+    

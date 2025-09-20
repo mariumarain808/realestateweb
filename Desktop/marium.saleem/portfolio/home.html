@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Portfolio</title>
+        <link rel="stylesheet" href="home.css">
+    </head>
+    <body>
+      <style>
+        body{
+   background-color: #204a5a; 
+   color:white;
+}
+.header{
+    background-image:url(girl.jpeg);
+    width:100%;
+    height:100vh;
+    background-repeat: no-repeat;
+    background-attachment:scroll;
+    background-position:130vh;
+    background-size: 50vh;
+   
+}
+.nav{
+    display: flex;               /* Activate flexbox */
+  justify-content: space-between; /* Space between logo and links */
+  align-items: center;         /* Vertically center items */
+  padding: 5px;
+  background-color: #6b8ea1;
+  color: white;
+}
+ul{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+gap:150px;
+list-style: none;
+padding-right: 20px;
+}
+.logo{
+font-size: x-large;
+font-weight: 900;
+padding-left: 40px;
+font-style:oblique;
+
+}
+
+
+ul a{
+    text-decoration: none;
+    color: white;
+
+}
+ul a:hover{
+border-bottom: solid;
+border-width: 3px;
+border-color: #d333b3;
+font-weight:bolder;
+}
+.heading{
+    margin-top: 200px;
+    margin-left: 140px;
+
+}
+strong{
+    display: inline-block;
+    font-family: monospace;        
+    white-space: nowrap;           
+    overflow: hidden;               
+    border-right: 2px solid black;  
+    width: 0ch;
+    animation:text 1s steps(13) forwards;
+    color:#d333b3;
+}
+@keyframes text {
+    from {
+        width: 0ch;
+    }
+    to {
+        width: 13ch; 
+    }
+}
+
+.about{
+    display: flex;
+    justify-content:space-between;
+    background-color:#6b8ea1;
+
+    
+}
+.abouttext{
+    margin-left: 500px;
+    font-size: large;
+}
+ul li:hover{
+border-bottom: solid;
+border-width: 3px;
+border-color: #d333b3;
+font-weight:bolder;
+    
+
+}
+ .tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #204a5a;
+  color: white;
+}
+
+.contact-section {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #6b8ea1;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.contact-section h1 {
+  color: #d333b3;
+  margin-bottom: 10px;
+}
+
+.contact-section p {
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+
+      </style>
+       <div class="header" id="home">
+<nav class="nav">
+    <logo class="logo">Marium </logo>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+</nav>
+<div class="heading">
+    <h1>I'm <strong>MARIUM SALEEM</strong></h1>
+    <h2>Front-End Developer passionate about creating <br>beautiful web interfaces.</h2>
+   </div>
+       </div>
+       <div class="about" id="about">
+      <div class="aboutimg">
+        <img src="about.jpeg" width="900%" height="100%">
+        </div>
+        <div class="abouttext">
+        <h1>About Me</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nulla molestias
+             quo assumenda, rem, voluptatem consequatur tempora nemo nam sapiente perferendis
+              quam reprehenderit cumque perspiciatis minus pariatur commodi incidunt fugiat.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam reprehenderit est
+             laboriosam neque suscipit obcaecati? Libero, sapiente blanditiis. Atque corporis
+              porro perspiciatis quas. Dolor officiis ea voluptate temporibus nesciunt neque.</p>
+              <ul class="about-tabs">
+  <li class="tab active" data-target="education">Education</li>
+  <li class="tab" data-target="experience">Experience</li>
+  <li class="tab" data-target="skills">Skills</li>
+</ul>
+
+<div class="tab-content active" id="education">
+  <p>Currently enrolled in 7th semester at University of sindh</p>
+</div>
+<div class="tab-content" id="experience">
+  <p>1 year expereience in front end development</p>
+  <p>4 month experience in data science</p>
+</div>
+<div class="tab-content" id="skills">
+  <p>front end web development</p>
+  <p> data science</p>
+  <p>python</p>
+</div>
+
+              </div>
+    
+              </div>
+      </div>
+       <section class="contact-section" id="contact">
+    <h1>Contact Me</h1>
+    <p>If you’d like to get in touch, here’s how you can reach me:</p>
+
+    <div class="contact-info">
+      <p><strong>Email:</strong> mariumarain000@gmail.com</p>
+      <p><strong>Phone:</strong> +92 300 1234567</p>
+      <p><strong>Address:</strong> Hyderabad, Sindh, Pakistan</p>
+    </div>
+  </section>
+      <script>
+        const tabs = document.querySelectorAll('.tab');
+const contents = document.querySelectorAll('.tab-content');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    contents.forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.target).classList.add('active');
+  });
+});
+
+      </script>
+    </body>
+</html>

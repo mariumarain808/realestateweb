@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Quiz App</title>
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+  <header>
+    <h1 class="logo">QuizApp</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="subjects.html">Subjects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="page">
+    <h2>Contact Us</h2>
+    <form action="contact.php" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject" required>
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 QuizApp. All Rights Reserved.</p>
+  </footer>
+</body>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = $_POST["name"];
+  $email = $_POST["email"];
+  $subject = $_POST["subject"];
+  $message = $_POST["message"];
+
+  $to = "your_email@example.com";  // change to your email
+  $headers = "From: " . $email;
+
+  $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+
+  if (mail($to, $subject, $body, $headers)) {
+    echo "Message sent successfully!";
+  } else {
+    echo "Failed to send message.";
+  }
+}
+?>
+
+</html>

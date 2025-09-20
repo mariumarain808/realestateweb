@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mariam's Portfolio</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #003135;
+      color: #AFDDE5;
+    }
+
+    header {
+      background-color: #024950;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .logo {
+      font-family: 'Satisfy', cursive;
+      font-size: 32px;
+      font-weight: bold;
+      color: #0FA4AF;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 60px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #AFDDE5;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #964734;
+    }
+
+    section {
+      padding: 120px 40px 80px;
+      min-height: 100vh;
+    }
+
+    h2 {
+      color: #0FA4AF;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      padding-top: 80px;
+    }
+
+    .about img {
+      width: 240px;
+      border-radius: 50%;
+      border: 4px solid #0FA4AF;
+    }
+
+    .about-text {
+      max-width: 800px;
+      max-height: 200px;
+      font-size: larger;
+    }
+
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      white-space: nowrap;
+      border-right: 2px solid white;
+      width: 9ch;
+      animation-name: typing;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: steps(9, start);
+    }
+
+    @keyframes typing {
+      from { width: 0ch; color: black; }
+      to { width: 8ch; color: #0FA4AF; }
+    }
+
+    .progressbar {
+      margin-bottom: 15px;
+      width: 80%;
+      height: 10px;
+      border-radius: 5px;
+      background-color: #AFDDE5;
+    }
+
+    .progressbar div {
+      width: 0%;
+      height: 10px;
+      border-radius: 5px;
+      background-color: #964734;
+    }
+
+    .progressbar div span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #0FA4AF;
+      border-radius: 50%;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      position: relative;
+      top: -15px;
+      right: -15px;
+      float: right;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .heading {
+      text-align: center;
+      font-size: 50px;
+    }
+
+    .html { animation: html 2s linear forwards infinite; }
+    .css { animation: css 2s linear forwards infinite; }
+    .js { animation: js 2s linear forwards infinite; }
+    .php { animation: php 2s linear forwards infinite; }
+    .py { animation: py 2s linear forwards infinite; }
+
+    @keyframes html { 0% { width: 0; } 33% { width: 90%; } 100% { width: 90%; } }
+    @keyframes css { 0% { width: 0; } 33% { width: 80%; } 100% { width: 80%; } }
+    @keyframes js { 0% { width: 0; } 33% { width: 70%; } 100% { width: 70%; } }
+    @keyframes php { 0% { width: 0; } 33% { width: 20%; } 100% { width: 20%; } }
+    @keyframes py { 0% { width: 0; } 33% { width: 56%; } 100% { width: 56%; } }
+
+    #project {
+      font-size: larger;
+    }
+    .proj{
+      padding:20px;
+    }
+    .heading{
+      font-weight: 300px;
+    }
+
+    .edu-buttons {
+      display: flex;
+      justify-content: center;
+      gap:20px;
+      padding-top: 10px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .button:hover {
+      background-color: #0FA4AF;
+      border-color: #964734;
+      border-style: solid;
+      border-width: 5px;
+    }
+
+    #edu-details {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #edu-details h2 {
+      color: #0FA4AF;
+      margin-bottom: 10px;
+    }
+
+    #edu-details p {
+      color: #AFDDE5;
+      font-size: 18px;
+    }
+
+    footer {
+      background-color: #024950;
+      text-align: center;
+      padding: 20px;
+      color: #AFDDE5;
+    }
+
+    a.email {
+      color: #AFDDE5;
+      text-decoration: none;
+    }
+
+    a.email:hover {
+      color: #0FA4AF;
+    }
+
+    #contact {
+      margin-top: -30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20%;
+    }
+
+   .contactimg img {
+  width: 100%;       
+  height: 100%;      
+  border-radius: 10px;
+  display: block;    
+}
+
+.contactimg {
+  width: 800px;      
+  max-width: 100%;
+  max-height:100%;
+  height:400px;   
+}
+
+
+    #contactheading {
+      text-align: center;
+      font-size: 70px;
+      margin-top: 20px;
+    }
+
+    #one {
+      font-size: 20px;
+    }
+
+    .em {
+      color: #964734;
+    }
+
+    h3 {
+      color: #964734;
+      font-size: larger;
+    }
+
+    h3::before {
+      content: "• ";
+      color: #964734;
+    }
+  
+#contactheading {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #FFFFFF; 
+  margin-bottom: 20px;
+}
+
+#contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+#contact form {
+  background-color: #1F4959; 
+  padding: 15px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 450px;
+}
+
+#contact label {
+  display: block;
+  color: #FFFFFF; 
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  background-color: #5C7C89; 
+  color: #FFFFFF;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: #E0E0E0;
+}
+
+#contact textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+#contact button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #242424; 
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#contact button:hover {
+  background-color: #5C7C89; 
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Marium</div>
+    <nav>
+      <ul >
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <section id="about" class="container">
+    <div class="about ">
+      <img src="download.jpeg" alt="Mariam Photo" >
+      <div class="about-text" >
+        <h2>I am <span class="typewriter"> MARIUM </span></h2>
+        <p>A dedicated front-end web developer with a strong foundation in modern web technologies.
+           I specialize in building responsive, accessible, and performance-optimized websites.
+           My expertise includes HTML, CSS, JavaScript, and user interface design principles.
+           I am committed to delivering clean, efficient code and seamless user experiences.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="skills">
+    <div class="container">
+      <h1 class="heading">Skills</h1>
+      <div class="skills">
+        <h2>HTML</h2>
+        <div class="progressbar"><div class="html"><span>90%</span></div></div>
+        <h2>CSS</h2>
+        <div class="progressbar"><div class="css"><span>80%</span></div></div>
+        <h2>JAVASCRIPT</h2>
+        <div class="progressbar"><div class="js"><span>70%</span></div></div>
+        <h2>PHP</h2>
+        <div class="progressbar"><div class="php"><span>20%</span></div></div>
+        <h2>PYTHON</h2>
+        <div class="progressbar"><div class="py"><span>56%</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="project">
+    <h1 class="heading">Projects</h1>
+    <p class="proj">
+      <h3>Quiz Website Assignment</h3>
+      <br>
+      Developed a subject-based quiz website for an academic assignment. 
+      When a user clicked on a subject box, it highlighted the selection and submitted the form to a PHP backend. 
+      The backend handled form data, but the quiz functionality itself was not implemented.
+    </p>
+    <p class="proj">
+      <h3>CodeAlpha Internship</h3>
+      <br>
+      Completed a virtual internship at CodeAlpha, where I worked on multiple tasks and mini-projects. 
+      Responsibilities included designing web pages, adding interactive features using JavaScript, 
+      and implementing simple functionality.
+    </p>
+  </section>
+
+
+  <section id="education">
+    <h1 class="heading">EDUCATION</h1>
+    <div class="edu-buttons">
+      <button class="button" onclick="showEducation('grad')">GRADUATION</button>
+      <button class="button" onclick="showEducation('inter')">INTERMEDIATE</button>
+      <button class="button" onclick="showEducation('matric')">MATRICULATION</button>
+    </div>
+    <div id="edu-details"></div>
+  </section>
+
+  <h1 id="contactheading">Contact</h1>
+  <section id="contact">
+   <form
+  action="https://formspree.io/f/xpwlonlv"
+  method="POST">
+   <label>
+    Your name:
+    <input type="text" name="name">
+  </label>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+
+  <button type="submit">Send</button>
+</form>
+
+<div class="contactimg">
+  <img src="contact.jpeg">
+</div>
+  </section>
+
+  <footer>
+    &copy; 2025 Mariam. Designed with ❤️ and a lot of code.
+  </footer>
+
+
+  <script>
+    function showEducation(type) {
+      let content = "";
+      if (type === "grad") {
+        content = `
+          <h2>GRADUATION</h2>
+          <p>Bachelor of Science in Information Technology (BSIT)</p>
+          <p>University of Sindh - 7th Semester</p>
+        `;
+      } else if (type === "inter") {
+        content = `
+          <h2>INTERMEDIATE</h2>
+          <p>Pre-engineering</p>
+          <p>Ibne Rushd Govt Girls College MIRPURKHAS</p>
+        `;
+      } else if (type === "matric") {
+        content = `
+          <h2>MATRICULATION</h2>
+          <p>in Science</p>
+          <p>Fauji Foundation Model School Mirpurkhas</p>
+        `;
+      }
+      document.getElementById("edu-details").innerHTML = content;
+    }
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelector("#contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); 
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let message = document.getElementById("message").value.trim();
+
+    if (name === "" || email === "" || message === "") {
+      alert("All fields are required.");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert("Please enter a valid email.");
+      return;
+    }
+
+    alert("Form submitted successfully!");
+  });
+});
+
+  </script>
+
+</body>
+</html>

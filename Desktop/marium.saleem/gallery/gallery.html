@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+<title> Gallery</title>
+</head>
+<body>
+    <style>
+h1{
+    text-align: center;
+}
+body{
+    background-color: bisque;
+}
+.galery{
+    width: 80%;
+    margin: 90px  50px 90px 50px;
+    display:grid;
+grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+grid-gap: 40px;
+    
+}
+.galery img:hover{
+    transform: scale(0.7) rotate(-27deg);
+    border-style:groove;
+    border-radius: 15px;
+    border-color:black;
+    border-width: 10px;
+    
+}
+
+    </style>
+    <h1> MY GALLERY </h1>
+        <div class="galery">
+            <img src="download (3).jpeg" alt="">
+        
+            <img src="download.jpeg" alt="">
+       
+            <img src="download (1).jpeg" alt="">
+        
+            <img src="download (2).jpeg" alt="">
+        
+            <img src="download (3).jpeg" alt="">
+        
+            <img src="download (4).jpeg" alt="">
+        
+            <img src="download (5).jpeg" alt="">
+        
+            <img src="download (6).jpeg" alt="">
+            <img src="download (1).jpeg" alt="">
+       
+    </div>
+    <script>
+const images = document.querySelectorAll('.galery img');
+
+images.forEach(img => {
+    img.addEventListener('click', () => {
+        alert('You clicked an image!');
+    });
+});
+
+        </script>
+
+</body>

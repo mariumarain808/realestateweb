@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>Form and Table</title>
+  <style>
+    body {
+     background-image:url(ff.png);
+     background-position: center;
+     background-size: cover;
+     color: white;
+
+    }
+
+    .form-container {
+      width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 5px solid 
+      #e9b9ed;
+      border-radius: 10px;
+      background-color:#b091f7;
+      opacity: 0.7;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-container label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-container input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    .form-container input[type="checkbox"] {
+      margin-right: 5px;
+      color:
+#7124b6;
+
+
+
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: blue;
+      color: white;
+      border: none;
+      font-size: 22px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #c796f4;
+    }
+    .table-container {
+      margin: 30px auto;
+      width: 80%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background-color:#7124b6;
+      color: white;
+    }
+
+   tr{
+    background-color: #e9b9ed;
+   }
+   input[type="checkbox"] 
+   { 
+    accent-color:#7124b6; 
+}
+input[type="radio"]
+ {
+    accent-color:#7124b6;  
+}
+h3{
+    font-size: 40px;
+    color:#7124b6;
+    padding-left: 700px;
+}
+#para{
+    font-size: 27px;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 8px;
+    border-color: #c973f1;
+background-color: #e9b9ed;
+ 
+
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2 id="h2">Registration Form</h2>
+  <form>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName">
+
+    <label for="contact">Contact:</label>
+    <input type="text" id="contact" name="contact" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label>Gender:</label>
+    <input type="radio" id="male" name="gender" value="male"> Male
+    <input type="radio" id="female" name="gender" value="female"> Female
+
+    <br><br>
+    <input type="checkbox" id="agreement" name="agreement" required>
+    <label for="agreement">I agree to the terms and conditions</label>
+
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Father's Name</th>
+        <th>Class</th>
+        <th>Roll Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John Doe</td>
+        <td>Michael Doe</td>
+        <td>10</td>
+        <td>101</td>
+      </tr>
+      <tr>
+        <td>Jane Smith</td>
+        <td>Robert Smith</td>
+        <td>12</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td>Emily Davis</td>
+        <td>James Davis</td>
+        <td>11</td>
+        <td>103</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h3> CSS Selector</h3>
+<p id="para"> CSS Selectors are rules in CSS used to select and style HTML elements. They help in designing web pages by targeting specific parts of the
+     content. The ID Selector is used to style **one unique element**. It is written with a `#` followed by the ID name. For example,
+      `#header { color: blue; }` makes the text color of the element with the ID "header" blue. IDs are unique, so they are used for single,
+       special elements. The Class Selector is used to style multiple elements that share the same class. It is written with a `.` 
+       followed by the class name. For example, `.button { background-color: green; }` gives all elements with the class "button" a green 
+       background. The main difference is that ID Selectors are for one element only, while Class Selectors can be used for 
+       many elements, making them more reusable.</p>
+</body>
+<h3> CSS Box Model</h3>
+<p id="para">
+    The CSS Box Model is a fundamental concept in web design that defines how elements are displayed on a webpage. It consists of four main parts:
+     content, padding, border, and margin. At the center is the content, which is the actual text, image, or element inside
+      the box. Surrounding the content is the padding, which creates space between the content and the border. For example, `padding: 10px;
+      ` adds 10 pixels of space inside the border, making the content look less crowded. Next is the border, which wraps around the padding 
+      and content. It can be styled using properties like `border: 2px solid black;`, adding a black border of 2 pixels thickness around the
+       element. Finally, the margin is the outermost layer, creating space between the element and other elements on the page. For instance,
+        `margin: 15px;` adds 15 pixels of space outside the border, helping to position elements neatly. Understanding the CSS Box Model is 
+        essential for controlling spacing, alignment, and layout in web development.
+</p>
+</html>

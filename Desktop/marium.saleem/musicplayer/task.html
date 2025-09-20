@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Music Player</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<style>
+    body {
+  background: #222;
+  color: #fff;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.player {
+  background: #333;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.controls button {
+  background: #555;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1.2rem;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.controls button:hover {
+  background: #777;
+}
+
+</style>
+  <div class="player">
+    <h2 id="song-title">Song Title</h2>
+    <audio id="audio" src="songs/song1.mp3"></audio>
+    <div class="controls">
+      <button id="prev">⏮️</button>
+      <button id="play">▶️</button>
+      <button id="next">⏭️</button>
+    </div>
+  </div>
+
+  <script>
+const songs = [
+  { title: "Song 1", src: "song1.mp4" },
+  { title: "Song 2", src: "song2.mp4" },
+  { title: "Song 3", src: "song3.mp4" }
+];
+
+let currentSongIndex = 0;
+
+const audio = document.getElementById("audio");
+const songTitle = document.getElementById("song-title");
+const playBtn = document.getElementById("play");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+
+
+function loadSong(index) {
+  audio.src = songs[index].src;
+  songTitle.textContent = songs[index].title;
+}
+
+loadSong(currentSongIndex);
+
+playBtn.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    playBtn.textContent = "⏸️";
+  } else {
+    audio.pause();
+    playBtn.textContent = "▶️";
+  }
+});
+
+nextBtn.addEventListener("click", () => {
+  currentSongIndex = (currentSongIndex + 1) % songs.length;
+  loadSong(currentSongIndex);
+  audio.play();
+  playBtn.textContent = "⏸️";
+});
+
+prevBtn.addEventListener("click", () => {
+  currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+  loadSong(currentSongIndex);
+  audio.play();
+  playBtn.textContent = "⏸️";
+});
+
+  </script>
+
+  
+</body>
+</html>
